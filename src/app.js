@@ -1,10 +1,13 @@
 require("dotenv").config();
 const express = require("express");
-const { sequelize } = require("../models");
+const { sequelize } = require("../src/models");
+const routes = require('./routers/router');
 
 const app = express();
 
 app.use(express.json());
+
+app.use('/api', routes);
 
 sequelize.authenticate()
     .then(() => {

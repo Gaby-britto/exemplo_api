@@ -10,16 +10,17 @@ const userService = {
     },
     update: async (id, userToUpdate) => {
         try {
-            const user = await User.findByPk(id);
-            if (!user) {
-                return null;
-            }
-            user.update(userToUpdate);
-            await user.save()
+          const user = await User.findByPk(id);
+          if (!user) {
+            return null;
+          }
+          await user.update(userToUpdate);
+          await user.save();
+          return user;
         } catch (error) {
-            throw new Error('Ocorreu um erro ao Atualizar User');
+          throw new Error("Ocorreu um erro ao atualizar o usuário.");
         }
-    },
+      },
     getById: async (id) => {
         try {
             const user = await User.findByPk(id);
