@@ -101,10 +101,17 @@ const adminController = {
             msg: "Admin não encontrado",
           });
         }
+
+        const hashSenha = await bcrypt.hash(senha, 10);
   
         const upadate = await senhaUpadte.update({
-          senha,
+          senha : hashSenha,
         });
+
+       
+  
+        
+  
   
         if (upadate) {
           return res.status(200).json({
