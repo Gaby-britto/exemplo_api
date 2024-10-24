@@ -48,7 +48,7 @@ const userService = {
             await user.destroy();
             return user;
         } catch (error) {
-            throw new Error('Ocorreu um erro ao buscar todos User');
+            throw new Error('Ocorreu um erro ao buscar User');
         }
     }
 }
